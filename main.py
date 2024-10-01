@@ -1,7 +1,7 @@
 from src.utils import create_db, create_table, insert_data
 from classes.db_manager import DBManager
 from src.output import (output_all_vacancies, output_vacancies_with_keyword,
-                                    output_companies_and_vacancies_count, output_vacancies_with_higher_salary)
+                        output_companies_and_vacancies_count, output_vacancies_with_higher_salary)
 
 
 def main() -> None:

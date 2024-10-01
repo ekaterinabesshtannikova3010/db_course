@@ -39,7 +39,7 @@ class DBManager:
         """Метод, который  получает список всех вакансий с указанием названия компании,
         названия вакансии и зарплаты и ссылки на вакансию."""
         query = '''
-        SELECT employer.name AS company, vacancy.name AS vacancy, 
+        SELECT employer.name AS company, vacancy.name AS vacancy,
                vacancy.salary_from, vacancy.salary_to, vacancy.url
         FROM vacancy
         JOIN employer ON vacancy.employer_id = employer.id;
@@ -60,7 +60,7 @@ class DBManager:
     def get_vacancies_with_higher_salary(self) -> List:
         """Метод, который получает список всех вакансий, у которых зарплата выше средней по всем вакансиям."""
         query = '''
-        SELECT employer.name AS company, vacancy.name AS vacancy, 
+        SELECT employer.name AS company, vacancy.name AS vacancy,
                vacancy.salary_from, vacancy.salary_to, vacancy.url
         FROM vacancy
         JOIN employer ON vacancy.employer_id = employer.id
@@ -75,11 +75,10 @@ class DBManager:
     def get_vacancies_with_keyword(self, keyword: str) -> List:
         """Метод, который получает список всех вакансий, в названии которых содержатся переданные в метод слова"""
         query = f'''
-        SELECT employer.name AS company, vacancy.name AS vacancy, 
+        SELECT employer.name AS company, vacancy.name AS vacancy,
                vacancy.salary_from, vacancy.salary_to, vacancy.url
         FROM vacancy
         JOIN employer ON vacancy.employer_id = employer.id
         WHERE vacancy.name LIKE '%{keyword}%';
         '''
         return self.__execute_query(query)
-    

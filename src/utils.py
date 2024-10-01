@@ -19,6 +19,7 @@ conn_params = {
 #   "password": "12345"
 # }
 
+
 def create_db(db_name: str) -> None:
     """Функция для создания БД"""
     conn = psycopg2.connect(**conn_params)
@@ -31,6 +32,7 @@ def create_db(db_name: str) -> None:
 
     cur.close()
     conn.close()
+
 
 create_db("test")
 
